@@ -3,14 +3,14 @@ import { Taco } from "../models/visits.js"
 function index(req, res) {
   Taco.find({})
   .then(tacos => {
-    res.render('tacos/index', {
+    res.render('visits/index', {
       tacos,
       title: "🌮"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -19,11 +19,11 @@ function create(req, res) {
   req.body.tasty = !!req.body.tasty
   Taco.create(req.body)
   .then(taco => {
-    res.redirect('/tacos')
+    res.redirect('/visits')
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -32,14 +32,14 @@ function show(req, res) {
   .populate("owner")
   .then(taco => {
     console.log(taco)
-    res.render('tacos/show', {
+    res.render('visits/show', {
       taco,
       title: "🌮 show"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -54,7 +54,7 @@ function flipTasty(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
