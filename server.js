@@ -8,22 +8,17 @@ import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
 import { passUserToView } from "./middleware/middleware.js"
-
 // connect to MongoDB with mongoose
 import('./config/database.js')
-
-// load passport
+// load assport
 import('./config/passport.js')
-
 // require routes
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as tacosRouter } from './routes/visits.js'
 import { router as profilesRouter } from './routes/profiles.js'
-
 // create the express app
 const app = express()
-
 // view engine setup
 app.set(
   'views',
@@ -66,22 +61,18 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/tacos', tacosRouter)
 app.use('/profiles', profilesRouter)
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
 })
-
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
-
   // render the error page
   res.status(err.status || 500)
   res.render('error', {
     title: `🎊 ${err.status || 500} Error`,
   })
 })
-
 export { app }
