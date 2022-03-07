@@ -8,7 +8,7 @@ const tacoSchema = new Schema({
   owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
 
-const Taco = mongoose.model("Visits", visitSchema)
+const Visit = mongoose.model("Visits", visitSchema)
 
 export {
   Taco
