@@ -61,14 +61,14 @@ function flipTasty(req, res) {
 function edit(req, res) {
   Taco.findById(req.params.id)
   .then(taco => {
-    res.render("tacos/edit", {
+    res.render("visits/edit", {
       taco,
-      title: "edit 🌮"
+      title: "edit visits"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -80,7 +80,7 @@ function update(req, res) {
       req.body.tasty = !!req.body.tasty
       taco.updateOne(req.body, {new: true})
       .then(() => {
-        res.redirect(`/tacos/${req.params.id}`)
+        res.redirect(`/visits/${req.params.id}`)
       })
     } else {
       throw new Error("NOT AUTHORIZED")
@@ -88,7 +88,7 @@ function update(req, res) {
   })
   .catch(err => {
     console.log("the error:", err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -98,7 +98,7 @@ function deleteTaco(req, res) {
     if (taco.owner.equals(req.user.profile._id)) {
       taco.delete()
       .then(() => {
-        res.redirect("/tacos")
+        res.redirect("/visits")
       })
     } else {
       throw new Error ("NOT AUTHORIZED")
@@ -106,7 +106,7 @@ function deleteTaco(req, res) {
   })
   .catch(err => {
     console.log("the error:", err)
-    res.redirect("/tacos")
+    res.redirect("/visits")
   })
 }
 
@@ -117,5 +117,5 @@ export {
   flipTasty,
   edit,
   update,
-  deleteTaco as delete,
+  deleteVisit as delete,
 }
