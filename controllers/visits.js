@@ -117,5 +117,4 @@ export {
   flipTasty,
   edit,
   update,
-  deleteVisit as delete,
 }

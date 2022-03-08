@@ -3,14 +3,14 @@
 
 <section>
   <h1>Edit the Visits/h1>
-  <form action="/tacos/<%= taco._id %>?_method=PUT" method="POST">
+  <form action="/visits/<%= visit._id %>?_method=PUT" method="POST">
     <label>
       Name:
       <input 
         type="text" 
         name="name" 
         autocomplete="off"
-        value="<%= taco.name %>"
+        value="<%= visit.name %>"
       >
     </label>
     <label>
@@ -21,7 +21,7 @@
         <%= taco.tasty ? "checked" : "" %> 
       >
     </label>
-    <button type="submit">Edit the 🌮</button>
+    <button type="submit">Edit the visit</button>
   </form>
 </section>
 

@@ -2,9 +2,9 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Tacos! 🌮🌮🌮</h1>
+  <h1>Visit Summary</h1>
   <% if (user) { %>
-    <h2>Add a Taco!</h2>
+    <h2>Add a visit!</h2>
     <form action="/tacos" method="POST">
       <label>
         Name:
@@ -14,16 +14,16 @@
         Tasty?
         <input type="checkbox" name="tasty">
       </label>
-      <button type="submit">Add 🌮</button>
+      <button type="submit">Add visit</button>
     </form>
   <% } %>
-  <h2>All the Tacos!</h2>
+  <h2>All the visits!</h2>
   <ul>
-    <% tacos.forEach(taco => { %>
+    <% visits.forEach(visit => { %>
       <li>
-        🌮 
-        <a href="/tacos/<%= taco._id %>"><%= taco.name %></a> 
-        is <%= taco.tasty ? "tasty" : "not tasty"%></li>
+        visit 
+        <a href="/visits/<%= visit._id %>"><%= visit.name %></a> 
+        is <%= visit.tasty ? "tasty" : "not tasty"%></li>
     <% }) %>
   </ul>
 </section>
