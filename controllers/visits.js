@@ -1,11 +1,11 @@
-import { Taco } from "../models/visits.js"
+import { Visit } from "../models/visits.js"
 
 function index(req, res) {
-  Taco.find({})
-  .then(tacos => {
+  visit.find({})
+  .then(visits => {
     res.render('visits/index', {
-      tacos,
-      title: "🌮"
+      visits,
+      title: "🚪"
     })
   })
   .catch(err => {
@@ -17,8 +17,8 @@ function index(req, res) {
 function create(req, res) {
   req.body.owner = req.user.profile._id
   req.body.tasty = !!req.body.tasty
-  Taco.create(req.body)
-  .then(taco => {
+  Visit.create(req.body)
+  .then(visit => {
     res.redirect('/visits')
   })
   .catch(err => {
@@ -28,13 +28,13 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Taco.findById(req.params.id)
+  Visit.findById(req.params.id)
   .populate("owner")
-  .then(taco => {
-    console.log(taco)
+  .then(visit => {
+    console.log(visit)
     res.render('visits/show', {
-      taco,
-      title: "🌮 show"
+      visit
+      title: "🚪 show"
     })
   })
   .catch(err => {
@@ -45,11 +45,11 @@ function show(req, res) {
 
 function flipTasty(req, res) {
   Taco.findById(req.params.id)
-  .then(taco => {
-    taco.tasty = !taco.tasty
-    taco.save()
+  .then(visit => {
+    visit.tasty = !taco.tasty
+    visit.save()
     .then(() => {
-      res.redirect(`/tacos/${taco._id}`)
+      res.redirect(`/visit/${visit._id}`)
     })
   })
   .catch(err => {
@@ -59,10 +59,10 @@ function flipTasty(req, res) {
 }
 
 function edit(req, res) {
-  Taco.findById(req.params.id)
-  .then(taco => {
+  Visit.findById(req.params.id)
+  .then(visit => {
     res.render("visits/edit", {
-      taco,
+      visit,
       title: "edit visits"
     })
   })
@@ -74,11 +74,11 @@ function edit(req, res) {
 
 function update(req, res) {
   console.log(req.params.id)
-  Taco.findById(req.params.id)
-  .then(taco => {
-    if (taco.owner.equals(req.user.profile._id)) {
+  Visit.findById(req.params.id)
+  .then(visit => {
+    if (visit.owner.equals(req.user.profile._id)) {
       req.body.tasty = !!req.body.tasty
-      taco.updateOne(req.body, {new: true})
+      visit.updateOne(req.body, {new: true})
       .then(() => {
         res.redirect(`/visits/${req.params.id}`)
       })
@@ -92,11 +92,11 @@ function update(req, res) {
   })
 }
 
-function deleteTaco(req, res) {
-  Taco.findById(req.params.id)
-  .then(taco => {
-    if (taco.owner.equals(req.user.profile._id)) {
-      taco.delete()
+function deleteVisit(req, res) {
+  Visit.findById(req.params.id)
+  .then(visit {
+    if (visit.owner.equals(req.user.profile._id)) {
+      visit.delete()
       .then(() => {
         res.redirect("/visits")
       })
