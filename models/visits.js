@@ -1,7 +1,5 @@
 import mongoose from "mongoose"
-
 const Schema = mongoose.Schema
-
 const tacoSchema = new Schema({
   name: String,
   tasty: Boolean,
@@ -9,7 +7,6 @@ const tacoSchema = new Schema({
 })
 
 const Visit = mongoose.model("Visits", visitSchema)
-
 export {
-  Taco
+  Visit
 }
