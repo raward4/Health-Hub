@@ -1,0 +1,36 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %> </h1>
+  <section>
+    <% if (profile.avatar) { %>
+      <div>
+        <img 
+          class="profile-avatar"
+          src="<%= profile.avatar %>" 
+          alt="<%= profile.name %> avatar"
+        >
+      </div>
+    <% } %>
+    <ul>
+      <% profile.myVisits.forEach(visit => { %> 
+        <li><a href="/visits/<%= visit._id %>"><%= visit.date + visit.office %></a></li>
+        <% }) %> 
+    </ul>
+  </section>
+  <form 
+  id="add-visit-to-my-visits"
+  action="/profiles/<%= profile._id %>"
+  method="POST"
+  >
+    <select name="visitId">
+      <% visits.forEach(visit => { %>
+        <option value="<%= visit._id %>"><%= `${visit.date} ${visit.office}` %></option>
+        <% }) %> 
+    </select>
+    <button type="submit">Add to My Visits</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

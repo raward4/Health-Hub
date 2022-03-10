@@ -1,28 +1,22 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/visits/edit.css">
 <%- include('../partials/nav') %>
 
-<section>
-  <h1>Edit the Visits/h1>
-  <form action="/visits/<%= visit._id %>?_method=PUT" method="POST">
-    <label>
-      Name:
-      <input 
-        type="text" 
-        name="name" 
-        autocomplete="off"
-        value="<%= visit.name %>"
-      >
-    </label>
-    <label>
-      Tasty?
-      <input 
-        type="checkbox" 
-        name="tasty"
-        <%= taco.tasty ? "checked" : "" %> 
-      >
-    </label>
-    <button type="submit">Edit the visit</button>
+<main>
+  <h1> Edit Visit </h1>
+  <form
+  id="new-form"
+  action="/visits/<%= visit._id %>?_method=PUT"
+  method="POST"
+  >
+  <label for="date-input">Date:</label>
+  <input type="text" name="date" value="<%= visit.date %> " id="date-input" />
+  <label for="office-input">Office:</label>
+  <input type="text" name="office" value="<%= visit.office %> " id="office-input" />
+  <label for="diagnosis-input">Diagnosis</label>
+  <input type="text" name="diagnosis" value="<%= visit.diagnosis %> " id="diagnosis-input">
+  <button type="submit">Save Visit</button>
   </form>
-</section>
+</main>
 
 <%- include('../partials/footer') %>

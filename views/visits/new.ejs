@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/visits/new.css">
+<%- include('../partials/nav') %>  
+
+<main>
+  <h1>Add a New Visit</h1>
+  <form id="new-form" action="/visits" method="POST">
+    <label for="date-input">Date:</label>
+    <input type="text" name="date" id="date-input" />
+    <label for="office-input">Office:</label>
+    <input type="text" name="office" id="office-input" />
+    <label for="diagnosis-input">Diagnosis</label>
+    <input type="text" name="diagnosis" id="diagnosis-input">
+    <button type="submit">Add Visit</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %> 

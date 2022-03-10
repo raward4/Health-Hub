@@ -1,28 +1,17 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/visits/show.css">
 <%- include('../partials/nav') %>
 
-<section>
-  <p>From the kitchen of <%= visit.owner.name %></p>
-  <h1><%= visit.name %> 🌮</h1>
-  <h2>This taco is <%= taco.tasty ? "tasty! 🤯" : "not tasty 😔" %></h2>
-  <% if (user) { %>
-    <form 
-      action="/visit/<%= visit._id %>/flip-tasty?_method=PATCH"
-      method="POST"
-    >
-      <button class="btn" type="submit">
-        Make visit <%= visit.tasty ? "not tasty 😠" : "tasty 🎉" %> 
-      </button>
-    </form>
-  <% } %>
-  <% if (visit.owner.equals(user?.profile._id)) { %>
-    <form action="/visit/<%= visit._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this visit 🚧</button>
-    </form>
-    <form action="/visit/<%= visit._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">delete this visit😠</button>
-    </form>
-  <% } %>
-</section>
+<main>
+  <h1> Visit Info </h1>
+  <section>
+      <div>Date: <%= visit.date %></div>
+      <div>Office: <%= visit.office %></div>
+      <div>Diagnosis: <%= visit.diagnosis%></div>
+      <a href="/visits/<%= visit._id %>/edit">
+        <button>Edit Visit</button>
+      </a>
+  </section>
+</main>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %> 

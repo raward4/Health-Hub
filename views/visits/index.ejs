@@ -1,31 +1,32 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/visits/index.css">
 <%- include('../partials/nav') %>
 
-<section>
-  <h1>Visit Summary</h1>
-  <% if (user) { %>
-    <h2>Add a visit!</h2>
-    <form action="/tacos" method="POST">
-      <label>
-        Name:
-        <input type="text" name="name" autocomplete="off">
-      </label>
-      <label>
-        Tasty?
-        <input type="checkbox" name="tasty">
-      </label>
-      <button type="submit">Add visit</button>
-    </form>
-  <% } %>
-  <h2>All the visits!</h2>
-  <ul>
-    <% visits.forEach(visit => { %>
-      <li>
-        visit 
-        <a href="/visits/<%= visit._id %>"><%= visit.name %></a> 
-        is <%= visit.tasty ? "tasty" : "not tasty"%></li>
-    <% }) %>
-  </ul>
-</section>
+<main>
+  <h1> Visit Summary </h1>
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Office</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% visits.forEach(visit => { %>
+          <tr>
+            <td><%= visit.date %></td>
+            <td><%= visit.office %> </td>
+            <td><a href="/visits/<%= visit._id %>">Info</a></td>
+            <td>
+              <form action="/visits/<%= visit._id %>?_method=DELETE" method="POST">
+                <button>X</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %> 
+    </tbody>
+  </table>
+</main>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %> 

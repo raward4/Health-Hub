@@ -2,7 +2,8 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <h1>Health-Hub</h1>
+  <h4>Appoinment information made ridiculously simple</h4>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -11,6 +12,7 @@
       />
     </div>
   <% } %>
+  <p>Welcome! View your visit summary by using the navigation bar above.</p>
 </main>
 
 <%- include('./partials/footer') %>

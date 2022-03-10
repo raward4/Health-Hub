@@ -4,15 +4,28 @@
 </head>
 <body>
   <nav>
-    <a href="/visits">🚪</a>
-    <a href="/profiles">🐱</a>
+
     <% if (user) { %>
-      <a href="/auth/logout">👋</a>
+      <a 
+        href="/auth/logout">
+        <button type="submit">Logout</button>
+      </a>
+      <a href="/visits/new"
+        <%- title === 'Add Visit' ? 'class="active"' : "" %> 
+      >
+        Add Visit</a>
+      <a href="/profiles"
+      >
+        Profiles</a>
     <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
+      <a 
+        href="/auth/google" class="siwg-link">
+          <button type="submit" class="siwg">
+            <img id="siwg-image" alt="Sign in with Google" />
+          </button>
       </a>
     <% } %>
+    <a 
+      href="/visits" <%- title === 'All Visits' ? 'class="active"' : "" %> 
+      >Visit Summary</a>
   </nav>
