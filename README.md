@@ -5,7 +5,7 @@ This is a CRUD app which allows a user to view, organize and modify health visit
 https://health-hub-project.herokuapp.com/
 
 ## Screenshots:
-<a href="https://www.dropbox.com/s/55bqqjfvlkrnfxc/Screen%20Shot%202022-03-10%20at%2011.44.38%20AM.png?dl=0"
+<a href="https://www.dropbox.com/s/55bqqjfvlkrnfxc/Screen%20Shot%202022-03-10%20at%2011.44.38%20AM.png?dl=0"></a>
 
 <li> https://www.dropbox.com/s/m0sh425dui4p72w/whacshot.png?dl=0](https://www.dropbox.com/s/lfqotox1t31hyux/Screen%20Shot%202022-03-10%20at%2011.45.48%20AM.png?dl=0)
 <li> https://www.dropbox.com/s/my8o4dtts94j0qg/Screen%20Shot%202022-03-10%20at%2011.44.19%20AM.png?dl=0
