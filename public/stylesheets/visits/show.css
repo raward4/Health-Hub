@@ -1,6 +1,6 @@
 ul {
   margin: 0 0 1.6rem;
-  padding: 0;
+  padding: 1;
   list-style: none;
 }
 
@@ -9,28 +9,28 @@ li {
 }
 
 table {
-  font-size: 2rem;
+  font-size: 6rem;
 }
 
 table thead th {
-  padding: 5px;
-  border-bottom: 2px solid #424748;
+  padding: 7px;
+  border-bottom: 2.5px solid #424748;
 }
 
 table td {
-  padding: 10px;
+  padding: 14px;
   text-align: center;
 }
 
 form * {
-  padding: 5px;
-  border-radius: 5px;
+  padding: 6px;
+  border-radius: 5.5px;
 }
 
 section {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1.6rem;
+  grid-gap: 3rem;
 }
 
 section div:nth-child(even) {
@@ -40,7 +40,7 @@ section div:nth-child(even) {
 #add-review-form {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1.6rem;
+  grid-gap: 1.9rem;
   margin-bottom: 2rem
 }
 
@@ -49,7 +49,7 @@ section div:nth-child(even) {
 }
 
 #add-review-form > button {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   width: 16rem;
   grid-column: 2 / 3;
   margin-bottom: 2.4rem;
